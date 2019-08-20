@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class MoneyTest {
 
@@ -11,5 +12,11 @@ public class MoneyTest {
         assertEquals(10, product.amount);
         product = five.times(3);
         assertEquals(15, product.amount);
+    }
+
+    @Test
+    void testEquality() {
+        assertEquals(new Dollar(1), new Dollar(1));
+        assertNotEquals(new Dollar(1), new Dollar(2));
     }
 }
