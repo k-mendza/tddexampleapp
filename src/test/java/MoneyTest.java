@@ -18,6 +18,7 @@ public class MoneyTest {
     void testDollarEquality() {
         assertEquals(new Dollar(1), new Dollar(1));
         assertNotEquals(new Dollar(1), new Dollar(2));
+        assertNotEquals(new Dollar(1), new Frank(1));
     }
 
     @Test
@@ -33,5 +34,6 @@ public class MoneyTest {
     void testFrankEquality() {
         assertEquals(new Frank(1), new Frank(1));
         assertNotEquals(new Frank(1), new Frank(2));
+        assertNotEquals(new Dollar(1), new Frank(1));
     }
 }
