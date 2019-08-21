@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public abstract class Money {
+public class Money {
 
     protected int amount;
     protected String currency;
@@ -10,30 +10,40 @@ public abstract class Money {
         this.currency = currency;
     }
 
-    public abstract Money times(int factor);
+    public Money times(int factor){
+        return new Money(amount*factor, this.currency);
+    }
 
     public static Money dollar(int amount){
-        return new Dollar(amount, "USD");
+        return new Money(amount, "USD");
     }
 
     public static Money frank(int amount){
-        return new Frank(amount, "CHF");
+        return new Money(amount, "CHF");
     }
 
     @Override
     public boolean equals(Object o) {
+        Money money = (Money) o;
         if (this == o){
             return true;
         }
-        if (o == null || getClass() != o.getClass()){
+        if (o == null || !Objects.equals(this.currency, money.currency)){
             return false;
         }
-        Money money = (Money) o;
         return amount == money.amount;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(amount);
+    }
+
+    @Override
+    public String toString() {
+        return "Money{" +
+                "amount=" + amount +
+                ", currency='" + currency + '\'' +
+                '}';
     }
 }
