@@ -3,15 +3,21 @@ import java.util.Objects;
 public abstract class Money {
 
     protected int amount;
+    protected String currency;
+
+    public Money(int amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
 
     public abstract Money times(int factor);
 
     public static Money dollar(int amount){
-        return new Dollar(amount);
+        return new Dollar(amount, "USD");
     }
 
     public static Money frank(int amount){
-        return new Frank(amount);
+        return new Frank(amount, "CHF");
     }
 
     @Override
