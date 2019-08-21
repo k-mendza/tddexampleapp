@@ -18,7 +18,7 @@ public class Money {
         return new Money(amount, "USD");
     }
 
-    public static Money frank(int amount){
+    public static Money franc(int amount){
         return new Money(amount, "CHF");
     }
 
