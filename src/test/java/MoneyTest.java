@@ -9,7 +9,7 @@ public class MoneyTest {
     void testEquality() {
         assertEquals(Money.dollar(1), Money.dollar(1));
         assertNotEquals(Money.dollar(1), Money.dollar(2));
-        assertNotEquals(Money.dollar(1),Money.franc(1));
+        assertNotEquals(Money.dollar(1), Money.franc(1));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class MoneyTest {
         Money five = Money.dollar(5);
         Expression result = five.plus(five);
         Sum sum = (Sum) result;
-        assertEquals(five, sum.augment);
+        assertEquals(five, sum.augmend);
         assertEquals(five, sum.addmend);
     }
 
